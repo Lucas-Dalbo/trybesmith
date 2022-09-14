@@ -4,7 +4,13 @@ import User from '../interfaces/user.interface';
 
 const secret = 'OvoCozido';
 
-interface TokenData {
+interface Token {
+  data: TokenData,
+  iat: number,
+  exp: number
+}
+
+export interface TokenData {
   id?: number,
   username: string,
   classe?: string,
@@ -12,13 +18,7 @@ interface TokenData {
   password: string
 }
 
-interface Token {
-  data: TokenData,
-  iat: number,
-  exp: number
-}
-
-interface ReqData extends Request {
+export interface ReqData extends Request {
   data?: TokenData,
 }
 
@@ -30,7 +30,7 @@ export const createJWT = (user: User): string => {
 export const validateJWT = (req: ReqData, res: Response, next: NextFunction): TokenData | void => {
   try {
     const token: string | undefined = req.headers.authorization;
-    if (!token) res.status(401).json({ message: 'Token não encontrado' });
+    if (!token) res.status(401).json({ message: 'Token not found' });
 
     const decoded = jwt.verify(token as string, secret) as Token;
 
@@ -39,6 +39,6 @@ export const validateJWT = (req: ReqData, res: Response, next: NextFunction): To
     next();
   } catch (err) {
     console.log(err);
-    res.status(401).json({ message: 'Token inválido ou expirado' });
+    res.status(401).json({ message: 'Invalid token' });
   }
 };
