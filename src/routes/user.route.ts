@@ -8,7 +8,7 @@ const router = Router();
 const controller = new UserController();
 const middleware = new UserMiddleware();
 
-router.post('/users', controller.create);
+router.post('/users', middleware.validateUser, controller.create);
 router.post('/login', middleware.validateLogin, controller.login);
 
 export default router;
