@@ -20,7 +20,7 @@ class OrderService {
     // Ajuda com o Promise.all;
     const orders = await Promise.all(
       result.map(async ({ id, userId }) => {
-        const products = await this.productModel.getByOrderId(id);
+        const products = await this.productModel.getByOrderId(id as number);
   
         const productsIds: number[] = [];
         for (let i = 0; i < products.length; i += 1) {
@@ -34,6 +34,14 @@ class OrderService {
     );
 
     return orders;
+  }
+
+  public async create(id: number, productsIds: number[]): Promise<Order> {
+    const newOrderId = await this.orderModel.create(id);
+
+    await this.productModel.updateOrderId(newOrderId, productsIds);
+
+    return { userId: id, productsIds };
   }
 }
 

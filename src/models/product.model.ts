@@ -30,6 +30,14 @@ class ProductModel {
       
     return result as Product[];
   }
+
+  public async updateOrderId(orderId: number, productsId: number[]): Promise<void> {
+    const productQuant = productsId.map(() => '?').toString();
+    await this.connection.execute(
+      `UPDATE Trybesmith.Products SET orderId = ? WHERE id IN (${productQuant})`,
+      [orderId, ...productsId],
+    );
+  }
 }
 
 export default ProductModel;
