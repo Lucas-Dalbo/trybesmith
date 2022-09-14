@@ -13,6 +13,15 @@ class UserController {
 
     res.status(201).json({ token });
   };
+
+  public login = async (req: Request, res: Response) => {
+    const { username, password } = req.body;
+    const login = await this.userService.login(username, password);
+
+    const token = createJWT(login);
+
+    res.status(200).json({ token });
+  };
 }
 
 export default UserController;
