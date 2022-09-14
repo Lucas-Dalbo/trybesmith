@@ -1,7 +1,7 @@
 interface Order {
-  id: number,
+  id?: number,
   userId: number,
-  productsId?: number[],
+  productsIds?: number[],
 }
 
 export default Order;
