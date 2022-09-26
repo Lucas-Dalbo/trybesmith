@@ -1,16 +1,32 @@
-# 🚧 README em construção 🚧
+[Read it in English!](./README-Eng.md)
 
-<!-- Olá, Tryber!
+# Projeto: TrybeSmith
+Este projeto foi desenvolvido enquanto estudante da Trybe no módulo de Back-End!
 
-Esse é apenas um arquivo inicial para o README do seu projeto.
+---
+## Objetivo
+O objetivo do projeto é criar uma API de vendas, com cadastro de clientes e produtos, usando TypeScript!
 
-É essencial que você preencha esse documento por conta própria, ok?
+---
+## Aprendizados
+ - Como construir uma API com linguagem TypeScript;
+ - Exercitar conhecimentos em JWT, cirando e validando tokens;
+ - Exercitar conhecimentos relativos ao express, como construção de rotas e suas validações.
 
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
+---
+## Funcionalidades das Rotas
+ - Resgitro de usuário.
+ - Realizar login.
+ - Registro de produtos.
+ - Listar todos os produtos.
+ - Registrar um pedido.
+ - Listar todos os pedidos.
 
-⚠️ IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
-
--->
+---
+## O que foi utilizado?
+ - TypeScript;
+ - Node.js com Express;
+ - JWT;
+ - MySQL;
+ - Docker-Compose para construção do container para os testes locais;
+ - ESlint para manter a integridade do código.
