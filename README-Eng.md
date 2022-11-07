@@ -1,4 +1,4 @@
-[Leia em Portugês!](./README.md)
+[Leia em Português!](./README.md)
 
 # TrybeSmith Project
 This project was developed while a student at Trybe, in the Back-End module.
